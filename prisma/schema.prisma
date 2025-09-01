@@ -1,0 +1,101 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String
+  avatar    String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  properties Property[] @relation("HostProperties")
+  bookings  Booking[]
+  reviews   Review[]
+
+  @@map("users")
+}
+
+model Property {
+  id              String   @id @default(cuid())
+  title           String
+  description     String
+  pricePerNight   Float
+  location        String
+  latitude        Float
+  longitude       Float
+  propertyType    String
+  maxGuests       Int
+  bedrooms        Int
+  bathrooms       Int
+  amenities       String[]
+  hostId          String
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  // Relations
+  host     User      @relation("HostProperties", fields: [hostId], references: [id])
+  images   Image[]
+  bookings Booking[]
+  reviews  Review[]
+
+  @@map("properties")
+}
+
+model Image {
+  id          String @id @default(cuid())
+  propertyId  String
+  url         String
+  altText     String
+  isPrimary   Boolean @default(false)
+  createdAt   DateTime @default(now())
+
+  // Relations
+  property Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+
+  @@map("images")
+}
+
+model Booking {
+  id          String   @id @default(cuid())
+  propertyId  String
+  userId      String
+  checkIn     DateTime
+  checkOut    DateTime
+  guestCount  Int
+  totalPrice  Float
+  status      String   @default("pending") // pending, confirmed, cancelled, completed
+  createdAt   DateTime @default(now())
+
+  // Relations
+  property Property @relation(fields: [propertyId], references: [id])
+  user     User     @relation(fields: [userId], references: [id])
+
+  @@map("bookings")
+}
+
+model Review {
+  id         String   @id @default(cuid())
+  propertyId String
+  userId     String
+  rating     Int
+  comment    String
+  photos     String[]
+  createdAt  DateTime @default(now())
+
+  // Relations
+  property Property @relation(fields: [propertyId], references: [id])
+  user     User     @relation(fields: [userId], references: [id])
+
+  @@map("reviews")
+}

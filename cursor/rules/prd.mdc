@@ -1,0 +1,208 @@
+# Airbnb Clone v2 - Project Requirements & Guidelines
+
+## 🎯 Project Overview
+
+This is an Airbnb-like vacation rental platform built with modern web technologies. The goal is to create a beautiful, animated, and user-friendly website with WOW effects that provides an exceptional user experience.
+
+## 🏗️ Architecture & Tech Stack
+
+### Core Framework
+
+- **Next.js 14+** with App Router
+- **React 18+** with TypeScript
+- **SSR/SSG** support for optimal performance
+
+### Styling & UI
+
+- **TailwindCSS** for utility-first styling
+- **shadcn/ui** for consistent, accessible UI components
+- **Responsive design** for all device sizes
+
+### Animations & Interactions
+
+- **Framer Motion** for smooth animations and transitions
+- **WOW effects** throughout the user experience
+- **Micro-interactions** for enhanced engagement
+
+### Database & Backend
+
+- **PostgreSQL** for data storage
+- **Prisma ORM** for database operations
+- **RESTful API** endpoints
+
+### Development Tools
+
+- **ESLint** + **Prettier** for code quality
+- **TypeScript** for type safety
+- **Git** with GitHub for version control
+
+## 🎨 Design Requirements
+
+### Visual Design
+
+- **Modern, clean aesthetic** inspired by Airbnb's design language
+- **High-quality images** with lazy loading and optimization
+- **Consistent color scheme** and typography
+- **Beautiful animations** that enhance UX without being distracting
+
+### User Experience
+
+- **Intuitive navigation** with clear information hierarchy
+- **Fast loading times** and smooth transitions
+- **Accessible design** following WCAG guidelines
+- **Mobile-first responsive design**
+
+## 🚀 Core Features
+
+### 1. Home Page
+
+- **Hero section** with compelling messaging
+- **Advanced search functionality** with location autocomplete
+- **Filtering system** (price, dates, amenities, property type)
+- **Featured locations** showcase
+- **Smooth scrolling** and parallax effects
+
+### 2. Location Details Page
+
+- **Comprehensive property information**
+- **High-quality image gallery** with zoom and navigation
+- **Detailed amenities** and house rules
+- **Interactive map** integration
+- **Booking calendar** and availability
+- **Reviews and ratings** system
+
+### 3. Search & Discovery
+
+- **Location-based search** with autocomplete
+- **Advanced filters** (price range, dates, property type, amenities)
+- **Map view** for location exploration
+- **Saved searches** and favorites
+
+## 📱 Technical Requirements
+
+### Performance
+
+- **Lighthouse score** > 90 for all metrics
+- **Core Web Vitals** optimization
+- **Image optimization** with Next.js Image component
+- **Code splitting** and lazy loading
+
+### SEO & Accessibility
+
+- **Meta tags** and structured data
+- **Semantic HTML** structure
+- **ARIA labels** and keyboard navigation
+- **Screen reader** compatibility
+
+### Code Quality
+
+- **TypeScript** for all components and functions
+- **ESLint rules** for consistent code style
+- **Component-based architecture** with reusable components
+- **Proper error handling** and loading states
+
+## 🎭 Animation Guidelines
+
+### Framer Motion Usage
+
+- **Smooth page transitions** between routes
+- **Staggered animations** for list items
+- **Hover effects** and micro-interactions
+- **Scroll-triggered animations** for WOW factor
+- **Performance-optimized** animations (use `layout` prop wisely)
+
+### Animation Principles
+
+- **Subtle and purposeful** - animations should enhance UX, not distract
+- **Consistent timing** - use standard easing curves
+- **Accessibility** - respect `prefers-reduced-motion` setting
+- **Performance** - avoid layout thrashing and heavy animations
+
+## 🗄️ Database Schema
+
+### Core Entities
+
+- **Properties** (id, title, description, price, location, amenities)
+- **Locations** (id, name, coordinates, country, city)
+- **Users** (id, name, email, profile)
+- **Bookings** (id, property_id, user_id, dates, status)
+- **Reviews** (id, property_id, user_id, rating, comment)
+
+### Relationships
+
+- Properties belong to Locations
+- Properties have many Bookings
+- Properties have many Reviews
+- Users have many Bookings and Reviews
+
+## 🔧 Development Guidelines
+
+### File Structure
+
+```
+src/
+├── app/                 # Next.js App Router
+├── components/          # Reusable UI components
+├── lib/                # Utilities and helpers
+├── types/              # TypeScript type definitions
+├── hooks/              # Custom React hooks
+└── styles/             # Global styles and Tailwind config
+```
+
+### Component Guidelines
+
+- **Functional components** with TypeScript
+- **Props interfaces** for all components
+- **Error boundaries** for robust error handling
+- **Loading states** for async operations
+- **Responsive design** considerations
+
+### State Management
+
+- **React hooks** for local state
+- **Context API** for global state if needed
+- **Server state** with React Query or SWR
+- **Form handling** with React Hook Form
+
+## 🚫 What NOT to Do
+
+- **Don't use** class components (use functional components)
+- **Don't skip** TypeScript types and interfaces
+- **Don't ignore** accessibility requirements
+- **Don't create** overly complex animations that hurt performance
+- **Don't forget** error handling and loading states
+- **Don't hardcode** values that should come from environment variables
+
+## ✅ Success Criteria
+
+- **Functional MVP** with core features working
+- **Beautiful animations** that create WOW effects
+- **Excellent user experience** across all devices
+- **Fast loading times** and smooth interactions
+- **Accessible design** following best practices
+- **Clean, maintainable code** with proper documentation
+
+## 🔄 Development Workflow
+
+1. **Start with** component structure and basic styling
+2. **Add** animations and interactions incrementally
+3. **Test** on multiple devices and screen sizes
+4. **Optimize** performance and accessibility
+5. **Polish** with final animations and micro-interactions
+
+## 📚 Resources & References
+
+- **Next.js Documentation**: https://nextjs.org/docs
+- **TailwindCSS**: https://tailwindcss.com/docs
+- **Framer Motion**: https://www.framer.com/motion/
+- **shadcn/ui**: https://ui.shadcn.com/
+- **Prisma**: https://www.prisma.io/docs
+
+---
+
+**Remember**: This project is about creating an exceptional user experience with beautiful animations and smooth interactions. Every decision should prioritize user experience, performance, and code quality.
+description:
+globs:
+alwaysApply: true
+
+---
