@@ -3,9 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Search, Menu, User, Globe, Heart } from "lucide-react";
+import { Search, Menu, User, Globe } from "lucide-react";
 import { useStore } from "@/store/useStore";
-import { cn } from "@/lib/utils";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

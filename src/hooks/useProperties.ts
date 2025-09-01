@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Property, SearchFilters } from "@/types";
 import { PropertyService } from "@/lib/services/propertyService";
 
@@ -18,7 +18,7 @@ export function useProperties(
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchProperties = async () => {
+  const fetchProperties = useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
@@ -31,11 +31,11 @@ export function useProperties(
     } finally {
       setLoading(false);
     }
-  };
+  }, [filters, page, limit]);
 
   useEffect(() => {
     fetchProperties();
-  }, [filters, page, limit]);
+  }, [filters, page, limit, fetchProperties]);
 
   return {
     properties,

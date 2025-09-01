@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Heart, Star, MapPin, Users, Bed, Bath } from "lucide-react";
 import { Property } from "@/types";
@@ -33,10 +34,11 @@ export default function PropertyCard({ property, index }: PropertyCardProps) {
           {/* Image */}
           <div className="relative aspect-[4/3] overflow-hidden">
             {primaryImage ? (
-              <img
+              <Image
                 src={primaryImage.url}
                 alt={primaryImage.altText}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                fill
+                className="object-cover group-hover:scale-110 transition-transform duration-500"
               />
             ) : (
               <div className="w-full h-full bg-gray-200 flex items-center justify-center">
@@ -137,10 +139,12 @@ export default function PropertyCard({ property, index }: PropertyCardProps) {
 
               {/* Host Info */}
               <div className="flex items-center space-x-2">
-                <img
+                <Image
                   src={property.host.avatar || "/default-avatar.png"}
                   alt={property.host.name}
-                  className="w-6 h-6 rounded-full object-cover"
+                  width={24}
+                  height={24}
+                  className="rounded-full object-cover"
                 />
                 <span className="text-xs text-gray-600">
                   {property.host.name}

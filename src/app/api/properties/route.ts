@@ -13,7 +13,7 @@ export async function GET(request: NextRequest) {
     const page = searchParams.get("page") || "1";
 
     // Build where clause
-    const where: any = {};
+    const where: Record<string, unknown> = {};
 
     if (location) {
       where.location = {
@@ -27,9 +27,13 @@ export async function GET(request: NextRequest) {
     }
 
     if (minPrice || maxPrice) {
-      where.pricePerNight = {};
-      if (minPrice) where.pricePerNight.gte = parseFloat(minPrice);
-      if (maxPrice) where.pricePerNight.lte = parseFloat(maxPrice);
+      (where.pricePerNight as Record<string, number>) = {};
+      if (minPrice)
+        (where.pricePerNight as Record<string, number>).gte =
+          parseFloat(minPrice);
+      if (maxPrice)
+        (where.pricePerNight as Record<string, number>).lte =
+          parseFloat(maxPrice);
     }
 
     if (guests) {

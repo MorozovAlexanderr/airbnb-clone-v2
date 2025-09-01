@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { PropertyService } from "@/lib/services/propertyService";
 
 export default function AdminPage() {
@@ -116,12 +117,12 @@ export default function AdminPage() {
               </h2>
               <div className="bg-gray-50 rounded-lg p-6">
                 <div className="space-y-3">
-                  <a
+                  <Link
                     href="/"
                     className="block text-blue-600 hover:text-blue-700 underline"
                   >
                     Home Page
-                  </a>
+                  </Link>
                   <a
                     href="/api/properties"
                     className="block text-blue-600 hover:text-blue-700 underline"

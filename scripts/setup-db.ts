@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 import { execSync } from "child_process";
-import { prisma } from "./src/lib/db";
-import { seedDatabase } from "./src/lib/seed";
+import { prisma } from "../src/lib/db";
+import { seedDatabase } from "../src/lib/seed";
 
 async function main() {
   try {

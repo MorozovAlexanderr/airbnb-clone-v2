@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { getPropertyTypeIcon } from "@/lib/utils";
 
 const categories = [
   { id: "beach", name: "Beach", icon: "🏖️", description: "Oceanfront escapes" },

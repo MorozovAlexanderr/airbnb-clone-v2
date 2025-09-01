@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowLeft,
@@ -177,10 +178,11 @@ export default function LocationDetail() {
                   setIsImageModalOpen(true);
                 }}
               >
-                <img
+                <Image
                   src={primaryImage?.url || "/placeholder.jpg"}
                   alt={primaryImage?.altText || property.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
               </div>
@@ -196,10 +198,11 @@ export default function LocationDetail() {
                   setIsImageModalOpen(true);
                 }}
               >
-                <img
+                <Image
                   src={image.url}
                   alt={image.altText}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
                 {/* Show "View all photos" on the last visible image if there are more */}
@@ -253,10 +256,12 @@ export default function LocationDetail() {
             <div className="border-b border-gray-200 pb-6">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-4">
-                  <img
+                  <Image
                     src={property.host.avatar || "/default-avatar.png"}
                     alt={property.host.name}
-                    className="w-16 h-16 rounded-full object-cover"
+                    width={64}
+                    height={64}
+                    className="rounded-full object-cover"
                   />
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900">
@@ -343,10 +348,12 @@ export default function LocationDetail() {
                       className="border-b border-gray-100 pb-4"
                     >
                       <div className="flex items-center space-x-3 mb-2">
-                        <img
+                        <Image
                           src={review.user.avatar || "/default-avatar.png"}
                           alt={review.user.name}
-                          className="w-10 h-10 rounded-full object-cover"
+                          width={40}
+                          height={40}
+                          className="rounded-full object-cover"
                         />
                         <div>
                           <p className="font-medium text-gray-900">
@@ -517,9 +524,11 @@ export default function LocationDetail() {
                   transition={{ duration: 0.3 }}
                   className="relative"
                 >
-                  <img
+                  <Image
                     src={property.images[selectedImageIndex]?.url}
                     alt={property.images[selectedImageIndex]?.altText}
+                    width={800}
+                    height={600}
                     className="w-full h-auto max-h-[80vh] object-contain rounded-lg"
                   />
 
@@ -595,9 +604,11 @@ export default function LocationDetail() {
                             : "border-transparent opacity-60 hover:opacity-80"
                         }`}
                       >
-                        <img
+                        <Image
                           src={image.url}
                           alt={image.altText}
+                          width={64}
+                          height={64}
                           className="w-full h-full object-cover"
                         />
                       </button>

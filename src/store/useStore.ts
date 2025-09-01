@@ -39,7 +39,7 @@ const initialState: Omit<
   theme: "light",
 };
 
-export const useStore = create<AppState>((set, get) => ({
+export const useStore = create<AppState>((set) => ({
   ...initialState,
 
   setSearchFilters: (filters) => {
