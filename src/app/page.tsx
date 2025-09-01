@@ -8,9 +8,11 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <main className="min-h-screen">
-      <Header />
+      <div className="relative">
+        <HeroSection />
+        <Header />
+      </div>
       <SearchModal />
-      <HeroSection />
       <CategoriesSection />
       <FeaturedProperties />
       <Footer />

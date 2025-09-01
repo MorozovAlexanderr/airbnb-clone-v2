@@ -100,10 +100,10 @@ export default function LocationDetail() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Header />
+      <Header variant="default" />
 
       {/* Back Button */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28">
         <Link
           href="/"
           className="inline-flex items-center text-gray-600 hover:text-gray-900 transition-colors duration-200"
@@ -542,7 +542,7 @@ export default function LocationDetail() {
                             prev === 0 ? property.images.length - 1 : prev - 1
                           );
                         }}
-                        className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/20 hover:bg-white/30 text-white transition-colors duration-200"
+                        className="absolute left-1 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/20 hover:bg-white/30 text-white transition-colors duration-200"
                       >
                         <svg
                           className="w-6 h-6"
@@ -566,7 +566,7 @@ export default function LocationDetail() {
                             prev === property.images.length - 1 ? 0 : prev + 1
                           );
                         }}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/20 hover:bg-white/30 text-white transition-colors duration-200"
+                        className="absolute right-1 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/20 hover:bg-white/30 text-white transition-colors duration-200"
                       >
                         <svg
                           className="w-6 h-6"
