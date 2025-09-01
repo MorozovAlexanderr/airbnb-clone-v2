@@ -4,14 +4,15 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
+    "build": "prisma generate && next build --turbopack",
     "start": "next start",
     "lint": "eslint",
     "setup-db": "tsx scripts/setup-db.ts",
     "db:seed": "tsx -e \"import('./src/lib/seed').then(m => m.seedDatabase())\"",
     "db:migrate": "prisma migrate dev",
     "db:generate": "prisma generate",
-    "db:studio": "prisma studio"
+    "db:studio": "prisma studio",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.1",
