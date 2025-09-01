@@ -31,6 +31,172 @@ const amenitiesIcons = {
   Parking: Car,
 };
 
+// Skeleton Loader Component
+function LocationSkeleton() {
+  return (
+    <div className="min-h-screen bg-white">
+      <Header variant="default" />
+
+      {/* Back Button Skeleton */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28">
+        <div className="w-32 h-6 bg-gray-200 rounded animate-pulse"></div>
+      </div>
+
+      {/* Main Content Skeleton */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Property Header Skeleton */}
+        <div className="mb-8">
+          <div className="flex items-start justify-between mb-4">
+            <div className="flex-1">
+              <div className="h-8 bg-gray-200 rounded mb-2 animate-pulse w-3/4"></div>
+              <div className="h-4 bg-gray-200 rounded animate-pulse w-1/2"></div>
+            </div>
+            <div className="flex space-x-2">
+              <div className="w-10 h-10 bg-gray-200 rounded-full animate-pulse"></div>
+              <div className="w-10 h-10 bg-gray-200 rounded-full animate-pulse"></div>
+            </div>
+          </div>
+        </div>
+
+        {/* Image Gallery Skeleton */}
+        <div className="mb-8">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
+            {/* Main Image Skeleton */}
+            <div className="lg:col-span-2 lg:row-span-2">
+              <div className="aspect-[4/3] bg-gray-200 rounded-2xl animate-pulse"></div>
+            </div>
+
+            {/* Secondary Images Skeleton */}
+            {[...Array(4)].map((_, index) => (
+              <div
+                key={index}
+                className="aspect-[4/3] bg-gray-200 rounded-2xl animate-pulse"
+              ></div>
+            ))}
+          </div>
+        </div>
+
+        {/* Property Details and Booking Skeleton */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Property Information Skeleton */}
+          <div className="lg:col-span-2 space-y-8">
+            {/* Host Info Skeleton */}
+            <div className="border-b border-gray-200 pb-6">
+              <div className="flex items-center space-x-4">
+                <div className="w-16 h-16 bg-gray-200 rounded-full animate-pulse"></div>
+                <div>
+                  <div className="h-5 bg-gray-200 rounded animate-pulse w-32 mb-2"></div>
+                  <div className="h-4 bg-gray-200 rounded animate-pulse w-20"></div>
+                </div>
+              </div>
+            </div>
+
+            {/* Property Details Skeleton */}
+            <div className="border-b border-gray-200 pb-6">
+              <div className="h-6 bg-gray-200 rounded animate-pulse w-48 mb-4"></div>
+              <div className="space-y-2 mb-4">
+                <div className="h-4 bg-gray-200 rounded animate-pulse"></div>
+                <div className="h-4 bg-gray-200 rounded animate-pulse w-5/6"></div>
+                <div className="h-4 bg-gray-200 rounded animate-pulse w-4/6"></div>
+              </div>
+
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {[...Array(4)].map((_, index) => (
+                  <div key={index} className="flex items-center space-x-2">
+                    <div className="w-5 h-5 bg-gray-200 rounded animate-pulse"></div>
+                    <div className="h-4 bg-gray-200 rounded animate-pulse w-20"></div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Amenities Skeleton */}
+            <div className="border-b border-gray-200 pb-6">
+              <div className="h-6 bg-gray-200 rounded animate-pulse w-48 mb-4"></div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {[...Array(6)].map((_, index) => (
+                  <div key={index} className="flex items-center space-x-3">
+                    <div className="w-5 h-5 bg-gray-200 rounded animate-pulse"></div>
+                    <div className="h-4 bg-gray-200 rounded animate-pulse w-24"></div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Reviews Skeleton */}
+            <div>
+              <div className="h-6 bg-gray-200 rounded animate-pulse w-48 mb-4"></div>
+              <div className="space-y-4">
+                {[...Array(3)].map((_, index) => (
+                  <div key={index} className="border-b border-gray-100 pb-4">
+                    <div className="flex items-center space-x-3 mb-2">
+                      <div className="w-10 h-10 bg-gray-200 rounded-full animate-pulse"></div>
+                      <div>
+                        <div className="h-4 bg-gray-200 rounded animate-pulse w-24 mb-1"></div>
+                        <div className="flex space-x-1">
+                          {[...Array(5)].map((_, starIndex) => (
+                            <div
+                              key={starIndex}
+                              className="w-4 h-4 bg-gray-200 rounded animate-pulse"
+                            ></div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="space-y-2">
+                      <div className="h-4 bg-gray-200 rounded animate-pulse"></div>
+                      <div className="h-4 bg-gray-200 rounded animate-pulse w-3/4"></div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Booking Card Skeleton */}
+          <div className="lg:col-span-1">
+            <div className="sticky top-24 bg-white border border-gray-200 rounded-2xl p-6 shadow-lg">
+              <div className="mb-6">
+                <div className="flex items-baseline space-x-2 mb-2">
+                  <div className="h-8 bg-gray-200 rounded animate-pulse w-20"></div>
+                  <div className="h-4 bg-gray-200 rounded animate-pulse w-12"></div>
+                </div>
+                <div className="h-3 bg-gray-200 rounded animate-pulse w-32"></div>
+              </div>
+
+              {/* Booking Form Skeleton */}
+              <div className="space-y-4 mb-6">
+                <div className="grid grid-cols-2 gap-2">
+                  <div>
+                    <div className="h-4 bg-gray-200 rounded animate-pulse w-16 mb-1"></div>
+                    <div className="h-10 bg-gray-200 rounded-lg animate-pulse"></div>
+                  </div>
+                  <div>
+                    <div className="h-4 bg-gray-200 rounded animate-pulse w-20 mb-1"></div>
+                    <div className="h-10 bg-gray-200 rounded-lg animate-pulse"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div className="h-4 bg-gray-200 rounded animate-pulse w-12 mb-1"></div>
+                  <div className="h-10 bg-gray-200 rounded-lg animate-pulse"></div>
+                </div>
+              </div>
+
+              {/* Book Button Skeleton */}
+              <div className="h-12 bg-gray-200 rounded-lg animate-pulse"></div>
+
+              <div className="h-3 bg-gray-200 rounded animate-pulse w-40 mx-auto mt-4"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <Footer />
+    </div>
+  );
+}
+
 export default function LocationDetail() {
   const params = useParams();
   const propertyId = params.id as string;
@@ -45,14 +211,7 @@ export default function LocationDetail() {
   });
 
   if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900 mb-4"></div>
-          <p className="text-gray-600">Loading property...</p>
-        </div>
-      </div>
-    );
+    return <LocationSkeleton />;
   }
 
   if (error || !property) {

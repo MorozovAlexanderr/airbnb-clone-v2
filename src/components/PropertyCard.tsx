@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Heart, Star, MapPin, Users, Bed, Bath } from "lucide-react";
 import { Property } from "@/types";
-import { formatPrice, getPropertyTypeIcon, truncateText } from "@/lib/utils";
+import { formatPrice, getPropertyTypeIcon } from "@/lib/utils";
 
 interface PropertyCardProps {
   property: Property;
@@ -27,12 +27,12 @@ export default function PropertyCard({ property, index }: PropertyCardProps) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       whileHover={{ y: -8, scale: 1.02 }}
-      className="group cursor-pointer"
+      className="group cursor-pointer h-full"
     >
-      <Link href={`/location/${property.id}`}>
-        <div className="relative overflow-hidden rounded-xl bg-white shadow-sm hover:shadow-xl transition-all duration-300">
+      <Link href={`/location/${property.id}`} className="block h-full">
+        <div className="relative overflow-hidden rounded-xl bg-white shadow-sm hover:shadow-xl transition-all duration-300 h-full flex flex-col">
           {/* Image */}
-          <div className="relative aspect-[4/3] overflow-hidden">
+          <div className="relative aspect-[4/3] overflow-hidden flex-shrink-0">
             {primaryImage ? (
               <Image
                 src={primaryImage.url}
@@ -65,22 +65,22 @@ export default function PropertyCard({ property, index }: PropertyCardProps) {
           </div>
 
           {/* Content */}
-          <div className="p-4">
+          <div className="p-4 flex-1 flex flex-col">
             {/* Header */}
             <div className="flex items-start justify-between mb-2">
-              <div className="flex-1">
-                <h3 className="font-semibold text-gray-900 group-hover:text-rose-600 transition-colors duration-200">
-                  {truncateText(property.title, 40)}
+              <div className="flex-1 min-w-0">
+                <h3 className="font-semibold text-gray-900 group-hover:text-rose-600 transition-colors duration-200 line-clamp-2">
+                  {property.title}
                 </h3>
                 <div className="flex items-center space-x-1 text-gray-600 text-sm mt-1">
-                  <MapPin className="w-3 h-3" />
-                  <span>{property.location}</span>
+                  <MapPin className="w-3 h-3 flex-shrink-0" />
+                  <span className="truncate">{property.location}</span>
                 </div>
               </div>
 
               {/* Rating */}
               {averageRating > 0 && (
-                <div className="flex items-center space-x-1">
+                <div className="flex items-center space-x-1 flex-shrink-0 ml-2">
                   <Star className="w-4 h-4 text-yellow-400 fill-current" />
                   <span className="text-sm font-medium">
                     {averageRating.toFixed(1)}
@@ -90,7 +90,7 @@ export default function PropertyCard({ property, index }: PropertyCardProps) {
             </div>
 
             {/* Property Details */}
-            <div className="flex items-center space-x-4 text-gray-600 text-sm mb-3">
+            <div className="flex items-center space-x-4 text-gray-600 text-sm mb-3 flex-shrink-0">
               <div className="flex items-center space-x-1">
                 <Users className="w-4 h-4" />
                 <span>Up to {property.maxGuests}</span>
@@ -110,7 +110,7 @@ export default function PropertyCard({ property, index }: PropertyCardProps) {
             </div>
 
             {/* Amenities */}
-            <div className="mb-3">
+            <div className="mb-3 flex-shrink-0">
               <div className="flex flex-wrap gap-1">
                 {property.amenities.slice(0, 3).map((amenity, idx) => (
                   <span
@@ -128,8 +128,8 @@ export default function PropertyCard({ property, index }: PropertyCardProps) {
               </div>
             </div>
 
-            {/* Price */}
-            <div className="flex items-center justify-between">
+            {/* Price and Host Info - Push to bottom */}
+            <div className="flex items-center justify-between mt-auto pt-2 border-t border-gray-100">
               <div>
                 <span className="font-semibold text-gray-900">
                   {formatPrice(property.pricePerNight)}
@@ -144,9 +144,9 @@ export default function PropertyCard({ property, index }: PropertyCardProps) {
                   alt={property.host.name}
                   width={24}
                   height={24}
-                  className="rounded-full object-cover"
+                  className="rounded-full object-cover flex-shrink-0"
                 />
-                <span className="text-xs text-gray-600">
+                <span className="text-xs text-gray-600 truncate max-w-20">
                   {property.host.name}
                 </span>
               </div>
